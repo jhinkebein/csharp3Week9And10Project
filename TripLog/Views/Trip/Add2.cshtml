@@ -1,0 +1,31 @@
+﻿<!--1. Add a model directive to your new TripViewModel class-->
+@model TripViewModel
+@{
+    ViewBag.Title = "Add Trip - Page 2";
+    ViewBag.SubHeader = $"Add Info for {TempData.Peek(nameof(Trip.Accommodation))}";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Add">
+    <!--2. This input should reference the TripViewModel PageNumber (hint: use asp-for)-->
+    <input type="hidden" asp-for="PageNumber"/>
+
+    <div class="form-group">
+        
+        <label asp-for="Trip.AccommodationPhone">Phone Number</label>
+        <input class="form-control" asp-for="Trip.AccommodationPhone"/>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Trip.AccommodationEmail">Email</label>
+        <input class="form-control" asp-for="Trip.AccommodationEmail"/>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-dark">Next</button>
+        <a asp-action="Cancel" class="btn btn-outline-dark">Cancel</a>
+    </div>
+</form>
+
+

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Trip>
+
+@{
+    ViewBag.Title = "My Trip Log";
+}
+
+<a asp-action="Add" asp-controller="Trip" class="mt-2"><b>Add Trip</b></a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Accommodations</th>
+            <th>Things To Do</th>
+        </tr>
+    </thead>
+    <tbody>
+    <!--Using the foreach loop on page 261 as an example build a separate
+    row for each Trip object in the Model collection.
+    Each row should contain five cells.
+    Thus, your code, like that on page 261, should have a single
+    set of <tr> tags and five sets of <td> tags.
+    The first cell should contain the Destination.
+    The second cell should contain the Start Date.
+    Hint: use ToShortDateString() to convert to a legible string.
+    Note also that StartDate can be null, so use the ? operator.
+    The third cell should contain the End Date.
+    Hint: use the same formatting as for Start Date mentioned above.
+    The fourth cell should use IsNullOrEmpty in an if statement
+    to see if Accommodation is populated. (see page 233)
+    If it is:
+        i. Place it in a <div> tag within the cell
+        ii. Also test if AccommodationPhone and AccommodationEmail
+            are populated and, if so, place each in a <div> tag within the same cell
+    The fifth cell should contain ThingToDo1, ThingToDo2, and ThingToDo3, each in
+    its own <div> tag within the cell, but only if each is populated.
+    -->
+        @foreach (var trip in @Model)
+         {
+            <tr>
+                <td>@trip.Destination</td>
+                <td>@trip.StartDate?.ToShortDateString()</td>
+                <td>@trip.EndDate?.ToShortDateString()</td>
+                <td>@if (!string.IsNullOrEmpty(trip.Accommodation))
+                {
+                    <div>@trip.Accommodation</div>
+                    @if (!string.IsNullOrEmpty(trip.AccommodationPhone))
+                    {
+                        <div>@trip.AccommodationPhone</div>
+                    }
+                    @if (!string.IsNullOrEmpty(trip.AccommodationEmail))
+                    {
+                        <div>@trip.AccommodationEmail</div>
+                    }
+                }</td>
+                <td>
+
+                    @if (!string.IsNullOrEmpty(trip.ThingToDo1))
+                    {
+                        <div>@trip.ThingToDo1</div>
+                    }
+                    @if (!string.IsNullOrEmpty(trip.ThingToDo2))
+                    {
+                        <div>@trip.ThingToDo2</div>
+                    }
+                    @if (!string.IsNullOrEmpty(trip.ThingToDo3))
+                    {
+                        <div>@trip.ThingToDo3</div>
+                    }
+
+                </td>
+            </tr>
+         }
+
+    </tbody>
+</table>

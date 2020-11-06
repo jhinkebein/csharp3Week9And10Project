@@ -1,0 +1,42 @@
+INSTRUCTIONS
+NOTE: You may need to run Update-Database in the PMC to build the database before running the application
+
+1. Create a new class file, Models\TripViewModel.cs, with two properties: Trip (a Trip object) and PageNumber, an integer.
+
+2. Open the Views\Trip\Add1 view in the Trip folder and follow the instructions in the file.
+
+3. Using the Add1 view as a guide, create an Add2 view that contains the following:
+
+	i. The SubHeader should be "Add Info for [trip accommodation value here]"
+	ii. Like Add1, it should also contain a hidden input field for the PageNumber
+	iii.  It should contain fields for entering the phone number and email 
+		(see the Trip class for the actual names of these fields in that class)
+	iv. Likd Add1, it should contain submit and cancel buttons
+
+4. Using the Add1 and Add2 views as guides, create an Add3 view that contains the following:
+
+	i. The SubHeader should be "Add Things To Do in [trip destination value here]"
+	ii. Like Add1 and Add2, it should also contain a hidden input field for the PageNumber
+
+	iii.  It should contain fields for entering the ThingsToDo fields (1 through 3; 
+		see the Trip class for the actual names of these fields in that class)
+	iv. Likd Add1 and Add2, it should contain submit and cancel buttons
+
+5. Open the Controllers\TripController.cs file and follow the numbered step in this file.
+
+6. Open the Views\Home\Index.cshtml and follow the instructions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

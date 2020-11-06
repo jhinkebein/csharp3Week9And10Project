@@ -1,0 +1,39 @@
+﻿@{ 
+    string message = TempData["message"]?.ToString();
+    string subheader = ViewBag.SubHeader;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="bg-secondary text-center text-white p-3 mb-2">
+            <h1>My Trip Log</h1>
+        </header>
+
+        <main role="main">
+            @* display temporary message if there is one *@
+            @if (!string.IsNullOrEmpty(message))
+            {
+                <h2 class="bg-light text-center p-2 mb-1">@message</h2>
+            }
+
+            @* display sub header if view has provided text for it *@
+            @if (!string.IsNullOrEmpty(subheader))
+            {
+                <h2 class="mt-2 mb-2">@subheader</h2>
+            }
+
+            @RenderBody()
+        </main>
+    </div>
+
+</body>
+</html>
